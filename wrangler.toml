@@ -1,0 +1,13 @@
+name = "view-counter"
+main = "src/worker.js"
+compatibility_date = "2024-10-14"
+workers_dev = false
+
+[[routes]]
+pattern = "https://yu.nm.cn/api/count*"
+zone_name = "fashionjombang.eu.org"
+
+[[d1_databases]]
+binding = "DB"
+database_id = "4965cc1f-1189-448b-8280-ad26e40b66bb"
+database_name = "view-counter"
