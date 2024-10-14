@@ -1,6 +1,9 @@
 export default {
 	async fetch(request, env) {
-		if (new URL(request.url).origin !== 'https://yu.nm.cn') {
+
+		const url = new URL(request.url);
+		
+		if (url.origin !== 'https://yu.nm.cn') {
 			return new Response('Forbidden', { status: 403 });
 		}
 
