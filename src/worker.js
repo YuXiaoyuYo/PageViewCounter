@@ -2,13 +2,14 @@ export default {
 	async fetch(request, env) {
 
 		const url = new URL(request.url);
-		
+
 		if (url.origin !== 'https://yu.nm.cn') {
 			return new Response('Forbidden', { status: 403 });
 		}
 
-		const page = new URL(request.url).searchParams.get('page');
-		if (url.pathname === '/api/count' && request.method === 'POST') {
+		const { pathname } = url;
+		if (pathname === '/api/count' && request.method === 'POST') {
+			const { page } = await request.json();
 			return await incrementCount(page, env);
 		} else {
 			return new Response('Method Not Allowed', { status: 405 });
