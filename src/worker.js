@@ -7,11 +7,12 @@ export default {
 		}
 
 		const { action } = await request.json();
+
 		if (action === 'total') {
 			return await getTotalCount(env);
-		} else {
-			return new Response('Method Not Allowed', { status: 405 });
 		}
+
+		return new Response('Method Not Allowed', { status: 405 });
 	}
 }
 
