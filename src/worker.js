@@ -21,5 +21,6 @@ async function getTotalCount(env) {
 	const updateTotalQuery = `UPDATE global_views SET total = total + 1 RETURNING total`;
 	const totalResult = await env['DB'].prepare(updateTotalQuery).first();
 	const totalCount = totalResult.total;
+	
 	return new Response(totalCount.toString(), { status: 200 });
 }
